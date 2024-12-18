@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randevu Takvimi</title>
+    <link rel="stylesheet" href="randevu.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="randevu.js"></script>
+</head>
+<body> 
+
+    <div class="container">
+        <h1>Randevu Takvimi</h1>
+
+        <!-- Takvim Göstergesi -->  <!-- Butonların çalışması -->
+        <div class="calendar">
+            <div class="calendar-header">
+                <button id="prevMonth" class="nav-button">&lt;</button>
+                <h2 id="currentMonth"></h2>
+                <button id="nextMonth" class="nav-button">&gt;</button>
+            </div>
+
+            <!-- Takvim Tablosu -->
+            <div id="month-days" class="calendar-table">
+                <!-- Günler dinamik olarak eklenecek -->
+            </div>
+        </div>
+
+        <!-- Randevu Ekleme Formu -->
+        <div class="form-container">
+            <h2>Randevu Ekle</h2>
+            <form id="randevuForm">
+                <label for="title">Başlık:</label>
+                <input type="text" id="title" name="title" placeholder="Başlık" required>
+
+                <label for="start_time">Başlangıç Zamanı:</label>
+                <input type="datetime-local" id="start_time" name="start_time" required>
+
+                <label for="end_time">Bitiş Zamanı:</label>
+                <input type="datetime-local" id="end_time" name="end_time" required>
+
+                <label for="description">Açıklama:</label>
+                <textarea id="description" name="description" placeholder="Açıklama" required></textarea>
+
+                <button type="submit">Randevu Ekle</button>
+            </form>
+            
+            <!-- Başarı mesajı -->
+            <div id="successMessage" style="display: none; color: green;">Randevunuz başarıyla eklendi!</div>
+            
+            <!-- Hata mesajı -->
+            <div id="errorMessage" style="display: none; color: red;">Randevunuz eklenemedi! Lütfen tekrar deneyin.</div>
+        </div>
+ 
+        <!-- Randevuların Listesi -->
+        <div class="randevu-list">
+            <h2>Randevular</h2>
+            <ul id="appointments">
+                <!-- Randevular dinamik olarak eklenecek -->
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

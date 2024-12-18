@@ -1,0 +1,335 @@
+/* Genel stil ayarları */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Takvim Stilleri */
+.calendar {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.nav-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.nav-button:hover {
+    background-color: #45a049;
+}
+
+/* Takvim Tablosu */
+#month-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.day {
+    padding: 15px;
+    background-color: #f9f9f9;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.day:hover {
+    background-color: #dff0d8;
+}
+
+.day.empty {
+    background-color: transparent;
+}
+
+/* Randevu Ekleme Formu */
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.form-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #4CAF50;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Randevu Listesi */
+.randevu-list {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.randevu-list h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #4CAF50;
+}
+
+#randevuList {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#randevuList li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+#randevuList li span {
+    font-weight: bold;
+}
+
+#randevuList li button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    float: right;
+    transition: background-color 0.3s;
+}
+
+#randevuList li button:hover {
+    background-color: #c0392b;
+}
+
+#appointments {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none; /* Liste işaretlerini kaldır */
+    padding: 0;
+}
+
+li {
+    padding: 5px;
+    background-color: #e2e2e2;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+/* Başarı mesajı kutusu */
+#successMessage {
+    display: none; /* Başlangıçta gizli */
+    color: white; /* Yazı rengi */
+    background-color: rgb(0, 0, 0); /* Arka plan rengi */
+    border: 1px solid rgb(0, 0, 0); /* Kenarlık rengi */
+    border-radius: 5px; /* Yuvarlak köşeler */
+    padding: 15px; /* İç boşluk */
+    text-align: center; /* Ortalanmış yazı */
+    font-size: 16px; /* Yazı boyutu */
+    font-weight: bold; /* Kalın yazı */
+    margin-top: 20px; /* Üst boşluk */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    transition: opacity 0.3s ease-in-out; /* Fade efekti için geçiş */
+}
+
+/* Başarı mesajı görünürken daha yumuşak bir geçiş efekti */
+#successMessage.fade {
+    opacity: 1;
+}
+
+#successMessage.fadeOut {
+    opacity: 0;
+}
+
+/* Medya Sorguları (Responsive Tasarım) */
+
+/* Mobil Cihazlar için Stil (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 95%;
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .calendar-header {
+        font-size: 1.5rem;
+    }
+
+    #month-days {
+        grid-template-columns: repeat(3, 1fr); /* 3 sütunlu grid */
+    }
+
+    .day {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+
+    form input, form textarea {
+        font-size: 0.9rem;
+    }
+
+    form button {
+        font-size: 1rem;
+    }
+
+    #randevuList li {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet Cihazlar için Stil (max-width: 1024px) */
+@media (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .calendar-header {
+        font-size: 1.7rem;
+    }
+
+    #month-days {
+        grid-template-columns: repeat(5, 1fr); /* 5 sütunlu grid */
+    }
+
+    .day {
+        font-size: 1.2rem;
+    }
+
+    .form-container {
+        padding: 18px;
+    }
+
+    form input, form textarea {
+        font-size: 1rem;
+    }
+
+    form button {
+        font-size: 1.1rem;
+    }
+}
+
+/* Masaüstü Cihazlar için Stil (min-width: 1025px) */
+@media (min-width: 1025px) {
+    body {
+        font-size: 18px;
+    }
+
+    .container {
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .calendar-header {
+        font-size: 1.8rem;
+    }
+
+    #month-days {
+        grid-template-columns: repeat(7, 1fr); /* 7 sütunlu grid */
+    }
+
+    .day {
+        font-size: 1.1rem;
+    }
+}
